@@ -22,9 +22,13 @@
             class="avatar bg-white"
             :id="mainLink.tooltip"
           />
-          <b-tooltip :target="mainLink.tooltip" placement="bottom" offset="0">{{
-            mainLink.tooltip
-          }}</b-tooltip>
+          <b-tooltip
+            :target="mainLink.tooltip"
+            placement="bottom"
+            offset="0"
+            variant="primary"
+            >{{ mainLink.tooltip }}</b-tooltip
+          >
         </div>
       </div>
       <div class="nav-buttons ml-auto bg-white">
