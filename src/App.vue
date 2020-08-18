@@ -23,4 +23,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.rounded-top-left {
+  border-top-left-radius: 10px !important;
+}
+.rounded-top-right {
+  border-top-right-radius: 10px !important;
+}
+.rounded-bottom-left {
+  border-bottom-left-radius: 10px !important;
+}
+.rounded-bottom-right {
+  border-bottom-right-radius: 10px !important;
+}
 </style>

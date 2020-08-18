@@ -32,10 +32,16 @@
         </div>
       </div>
       <div class="nav-buttons ml-auto bg-white">
-        <button type="button" class="btn btn-outline-danger ml-2">
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
+        >
           Sign In
         </button>
-        <button type="button" class="btn btn-outline-danger ml-2">
+        <button
+          type="button"
+          class="btn btn-danger btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
+        >
           Sign Out
         </button>
       </div>
@@ -125,6 +131,7 @@ export default {
 }
 .tooltip {
   margin: 20px;
-  font-size: 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 </style>
