@@ -9,8 +9,8 @@
 import NavBar from "./components/Navigation/NavBar";
 export default {
   components: {
-    NavBar,
-  },
+    NavBar
+  }
 };
 </script>
 
@@ -34,5 +34,8 @@ export default {
 }
 .rounded-bottom-right {
   border-bottom-right-radius: 10px !important;
+}
+.rounded-full {
+  border-radius: 100%;
 }
 </style>
