@@ -1,18 +1,26 @@
 <template>
   <div>
-    <header id="main" class="navbar navbar-expand-lg navbar-light bg-white fixed-top ml-5">
+    <header
+      id="main"
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top ml-5"
+    >
       <div class="d-flex flex-column align-items-left ml-5" href="#">
         <span class="bg-white h5 mb-0">JanGvio</span>
         <small class="bg-white text-muted">Lorem Ipsem Maseep!</small>
       </div>
       <div class="main-links ml-auto bg-white">
-        <div v-for="(mainLink, index) in mainLinks" :key="index" class="avatar bg-white">
+        <div
+          v-for="(mainLink, index) in mainLinks"
+          :key="index"
+          class="avatar bg-white"
+        >
           <img
-            src="@/assets/avatar.png"
+            :src="require(`@/assets/${mainLink.src}`)"
             width="30"
             height="30"
             alt="Profile Avatar"
             class="avatar bg-white"
+            :class="{ invisible: mainLink.invisible }"
             :id="mainLink.tooltip"
           />
           <b-tooltip
@@ -20,7 +28,8 @@
             placement="bottom"
             offset="0"
             variant="primary"
-          >{{ mainLink.tooltip }}</b-tooltip>
+            >{{ mainLink.tooltip }}</b-tooltip
+          >
         </div>
       </div>
       <div id="addBtn">
@@ -31,22 +40,39 @@
           v-b-modal.signInModal
           type="button"
           class="btn btn-outline-primary btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >Sign In</button>
+        >
+          Sign In
+        </button>
         <button
           v-b-modal.signUpModal
           type="button"
           class="btn btn-danger btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >Sign Up</button>
+        >
+          Sign Up
+        </button>
         <SignInModal></SignInModal>
         <SignUpModal></SignUpModal>
       </div>
     </header>
-    <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
+    <header
+      id="aside"
+      class="navbar navbar-light bg-white flex-column fixed-bottom h-100"
+    >
       <a href="#" class="bg-white p-1 mb-5">
-        <img class="bg-white" src="@/assets/logo.png" width="35" height="35" alt="JanGvio Logo" />
+        <img
+          class="bg-white"
+          src="@/assets/logo.png"
+          width="35"
+          height="35"
+          alt="JanGvio Logo"
+        />
       </a>
       <div class="mb-auto bg-transparent mt-5">
-        <div v-for="(sideLink, index) in sideLinks" :key="index" class="avatar mb-5">
+        <div
+          v-for="(sideLink, index) in sideLinks"
+          :key="index"
+          class="avatar mb-5"
+        >
           <img
             src="@/assets/avatar.png"
             width="30"
@@ -61,7 +87,8 @@
             offset="0"
             variant="primary"
             class="tooltip-right"
-          >{{ sideLink.tooltip }}</b-tooltip>
+            >{{ sideLink.tooltip }}</b-tooltip
+          >
         </div>
       </div>
     </header>
@@ -76,16 +103,16 @@ export default {
   components: {
     addBtn,
     SignInModal,
-    SignUpModal
+    SignUpModal,
   },
   data() {
     return {
       mainLinks: [
-        { tooltip: "Explore" },
-        { tooltip: "Premium" },
-        { tooltip: "Following" },
-        { tooltip: "Following" },
-        { tooltip: "Search" }
+        { tooltip: "Explore", invisible: false, src: "explore.svg" },
+        { tooltip: "Premium", invisible: false, src: "premium.svg" },
+        { tooltip: "Empty", invisible: true, src: "avatar.png" },
+        { tooltip: "Following", invisible: false, src: "following.svg" },
+        { tooltip: "Search", invisible: false, src: "search.svg" },
       ],
       sideLinks: [
         { tooltip: "One" },
@@ -93,10 +120,10 @@ export default {
         { tooltip: "Three" },
         { tooltip: "Four" },
         { tooltip: "Five" },
-        { tooltip: "Six" }
-      ]
+        { tooltip: "Six" },
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -110,26 +137,23 @@ export default {
     place-items: center;
     gap: 5em;
     padding: 15px;
-    img {
-      filter: grayscale(1);
-    }
   }
   position: relative;
 }
 #addBtn {
   position: absolute;
-  left: 46%;
+  left: 50%;
+  margin-left: -50px;
 }
 #aside {
   width: 70px !important;
   box-shadow: 4px 58px 7px -10px #000;
 }
 .avatar {
-  border-radius: 100%;
+  // border-radius: 100%;
 }
 .tooltip {
   margin: 20px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 18px;
 }
 </style>
