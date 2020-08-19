@@ -28,13 +28,17 @@
       </div>
       <div class="nav-buttons ml-auto bg-white">
         <button
+          v-b-modal.signInModal
           type="button"
           class="btn btn-outline-primary btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
         >Sign In</button>
         <button
+          v-b-modal.signUpModal
           type="button"
           class="btn btn-danger btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >Sign Out</button>
+        >Sign Up</button>
+        <SignInModal></SignInModal>
+        <SignUpModal></SignUpModal>
       </div>
     </header>
     <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
@@ -66,9 +70,13 @@
 
 <script>
 import addBtn from "../Navigation/addBtn";
+import SignInModal from "../Auth/SignInModal";
+import SignUpModal from "../Auth/SignUpModal";
 export default {
   components: {
-    addBtn
+    addBtn,
+    SignInModal,
+    SignUpModal
   },
   data() {
     return {

@@ -6,10 +6,13 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import { TooltipPlugin } from "bootstrap-vue";
-Vue.use(TooltipPlugin);
+import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 
-Vue.config.productionTip = false;
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
 
 new Vue({
   router,

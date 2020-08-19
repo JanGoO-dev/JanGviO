@@ -38,4 +38,11 @@ export default {
 .rounded-full {
   border-radius: 100%;
 }
+// button[type="button"] {
+//   border-bottom-right-radius: 10px !important;
+//   border-bottom-left-radius: 10px !important;
+//   border-top-right-radius: 10px !important;
+//   border-top-left-radius: 10px !important;
+//   padding: 4px 30px;
+// }
 </style>
