@@ -2,8 +2,19 @@
   <div>
     <div class="container wrap">
       <ul id="menu" class="bg-white rounded-full">
-        <a class="menu-button icon-plus" href="#menu" title="Show navigation"></a>
-        <a class="menu-button icon-minus" href="#0" title="Hide navigation"></a>
+        <a
+          class="menu-button d-flex justify-content-center"
+          :href="triggerHREF"
+          :title="triggerStatus"
+          @click="toggleState"
+        >
+          <img
+            src="@/assets/add.svg"
+            class="target bg-transparent"
+            width="26"
+            alt="Add Button Icon SVG"
+          />
+        </a>
         <li class="menu-item">
           <a href="#menu">
             <span class="fas fa-github"></span>
@@ -30,10 +41,43 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      triggerHREF: "#0",
+      triggerStatus: "Show Navigation",
+    };
+  },
+  methods: {
+    toggleState() {
+      var e = document.querySelector(".target");
+      if (this.triggerHREF === "#menu") {
+        this.triggerHREF = "#0";
+        this.triggerStatus = "Hide Navigation";
+        e.classList.remove("rotate-forward");
+        e.classList.add("rotate-back");
+      } else {
+        this.triggerHREF = "#menu";
+        this.triggerStatus = "Show Navigation";
+        e.classList.add("rotate-forward");
+        e.classList.remove("rotate-back");
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
+.rotate-forward {
+  transition: ease-in-out 0.3s;
+  transform: rotate(45deg);
+}
+
+.rotate-back {
+  transition: ease-in-out 0.3s;
+  transform: rotate(0deg);
+}
+
 #menu {
   width: 70px;
   height: 70px;
@@ -106,22 +150,22 @@ export default {};
   text-decoration: none;
 }
 
-#menu:target > .menu-item:nth-child(6) {
+#menu:target > .menu-item:nth-child(5) {
   transform: rotate(36deg) translateY(70px) rotate(300deg);
   transition-delay: 0s;
 }
 
-#menu:target > .menu-item:nth-child(5) {
+#menu:target > .menu-item:nth-child(4) {
   transform: rotate(5deg) translateY(95px) rotate(-20deg);
   transition-delay: 0.1s;
 }
 
-#menu:target > .menu-item:nth-child(3) {
+#menu:target > .menu-item:nth-child(2) {
   transform: rotate(-23deg) translateY(103px) rotate(20deg);
   transition-delay: 0.2s;
 }
 
-#menu:target > .menu-item:nth-child(4) {
+#menu:target > .menu-item:nth-child(3) {
   transform: rotate(-52deg) translateY(95px) rotate(60deg);
   transition-delay: 0.3s;
 }

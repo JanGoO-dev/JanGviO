@@ -114,14 +114,7 @@ export default {
         { tooltip: "Following", invisible: false, src: "following.svg" },
         { tooltip: "Search", invisible: false, src: "search.svg" },
       ],
-      sideLinks: [
-        { tooltip: "One" },
-        { tooltip: "Two" },
-        { tooltip: "Three" },
-        { tooltip: "Four" },
-        { tooltip: "Five" },
-        { tooltip: "Six" },
-      ],
+      sideLinks: [{ tooltip: "One" }],
     };
   },
 };
