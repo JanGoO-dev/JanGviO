@@ -12,14 +12,14 @@
       >
         <div class="profile-details mt-1 bg-transparent">
           <span class="h6">
-            <span class="text-dark font-weight-bold">@UserName</span>
+            <span class="text-dark">@UserName</span>
             <br />
-            <span class="text-muted">6 days ago - 03/05/2020</span>
+            <small class="text-muted">6 days ago - 03/05/2020</small>
           </span>
         </div>
       </div>
       <div class="feed align-self-end">
-        <div class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around">
+        <div class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around text-muted">
           <span>Like</span>
           <span>Share</span>
           <span>Coment</span>
@@ -43,7 +43,7 @@ export default {
 <style scoped>
 .profile-details {
   position: absolute;
-  left: calc(80px);
+  left: calc(70px);
   width: calc(6rem * 2);
 }
 .feed {
