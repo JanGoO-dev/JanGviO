@@ -1,19 +1,12 @@
 <template>
   <div>
-    <header
-      id="main"
-      class="navbar navbar-expand-lg navbar-light bg-white fixed-top ml-5"
-    >
+    <header id="main-nav" class="navbar navbar-expand-lg navbar-light bg-white ml-5 fixed-top">
       <div class="d-flex flex-column align-items-left ml-5" href="#">
         <span class="bg-white h5 mb-0">JanGvio</span>
         <small class="bg-white text-muted">Lorem Ipsem Maseep!</small>
       </div>
-      <div class="main-links ml-auto bg-white">
-        <div
-          v-for="(mainLink, index) in mainLinks"
-          :key="index"
-          class="avatar bg-white"
-        >
+      <div class="main-links ml-auto pl-5 bg-white">
+        <div v-for="(mainLink, index) in mainLinks" :key="index" class="avatar bg-white">
           <img
             :src="require(`@/assets/${mainLink.src}`)"
             width="30"
@@ -28,11 +21,10 @@
             placement="bottom"
             offset="0"
             variant="primary"
-            >{{ mainLink.tooltip }}</b-tooltip
-          >
+          >{{ mainLink.tooltip }}</b-tooltip>
         </div>
       </div>
-      <div id="addBtn">
+      <div id="addBtn" class="pl-2">
         <addBtn></addBtn>
       </div>
       <div class="nav-buttons ml-auto bg-white">
@@ -40,39 +32,22 @@
           v-b-modal.signInModal
           type="button"
           class="btn btn-outline-primary btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign In
-        </button>
+        >Sign In</button>
         <button
           v-b-modal.signUpModal
           type="button"
           class="btn btn-danger btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign Up
-        </button>
+        >Sign Up</button>
         <SignInModal></SignInModal>
         <SignUpModal></SignUpModal>
       </div>
     </header>
-    <header
-      id="aside"
-      class="navbar navbar-light bg-white flex-column fixed-bottom h-100"
-    >
+    <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
       <a href="#" class="bg-white p-1 mb-5">
-        <img
-          class="bg-white"
-          src="@/assets/logo.png"
-          width="35"
-          height="35"
-          alt="JanGvio Logo"
-        />
+        <img class="bg-white" src="@/assets/logo.png" width="35" height="35" alt="JanGvio Logo" />
       </a>
       <div class="mb-auto bg-transparent mt-5">
-        <div
-          v-for="(sideLink, index) in sideLinks"
-          :key="index"
-          class="avatar mb-5"
-        >
+        <div v-for="(sideLink, index) in sideLinks" :key="index" class="avatar mb-5">
           <img
             src="@/assets/avatar.png"
             width="30"
@@ -87,8 +62,7 @@
             offset="0"
             variant="primary"
             class="tooltip-right"
-            >{{ sideLink.tooltip }}</b-tooltip
-          >
+          >{{ sideLink.tooltip }}</b-tooltip>
         </div>
       </div>
     </header>
@@ -103,7 +77,7 @@ export default {
   components: {
     addBtn,
     SignInModal,
-    SignUpModal,
+    SignUpModal
   },
   data() {
     return {
@@ -112,16 +86,16 @@ export default {
         { tooltip: "Premium", invisible: false, src: "premium.svg" },
         { tooltip: "Empty", invisible: true, src: "avatar.png" },
         { tooltip: "Following", invisible: false, src: "following.svg" },
-        { tooltip: "Search", invisible: false, src: "search.svg" },
+        { tooltip: "Search", invisible: false, src: "search.svg" }
       ],
-      sideLinks: [{ tooltip: "One" }],
+      sideLinks: [{ tooltip: "One" }]
     };
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-#main {
+#main-nav {
   height: 60px !important;
   box-shadow: 0 4px 7px -10px #000;
   .main-links {
@@ -130,8 +104,8 @@ export default {
     place-items: center;
     gap: 5em;
     padding: 15px;
+    position: relative;
   }
-  position: relative;
 }
 #addBtn {
   position: absolute;

@@ -35,6 +35,12 @@ export default {
 .rounded-bottom-right {
   border-bottom-right-radius: 10px !important;
 }
+.rounded-all {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
 .rounded-full {
   border-radius: 100%;
 }

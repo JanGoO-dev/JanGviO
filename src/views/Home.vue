@@ -1,28 +1,30 @@
 <template>
-  <div class="home ml-5 p-5">
-    <div id="post-wrap">
-      <b-card
-        title="Card Title"
-        img-src="https://picsum.photos/600/300/?image=25"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2"
-      >
-        <b-card-text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </b-card-text>
-
-        <b-button href="#" variant="primary">Go somewhere</b-button>
-      </b-card>
+  <div class="home">
+    <div id="post-wrap" class="card-group">
+      <CardPost v-for="(card, index) in 12" :key="index"></CardPost>
     </div>
   </div>
 </template>
 
 <script>
+import CardPost from "../components/CardPost";
 export default {
   name: "Home",
+  components: { CardPost }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  margin-top: 170px;
+  margin-left: 120px;
+  margin-right: 50px;
+  margin-bottom: 70px;
+}
+#post-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  row-gap: 1.8rem;
+  column-gap: 3.2rem;
+}
+</style>
