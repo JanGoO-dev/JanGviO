@@ -83,10 +83,10 @@ export default {
 
 @keyframes flash {
   from {
-    opacity: 0.1;
+    opacity: 0.06;
   }
   to {
-    opacity: 0.123;
+    opacity: 0.08;
   }
 }
 </style>
