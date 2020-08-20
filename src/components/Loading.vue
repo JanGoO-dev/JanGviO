@@ -4,8 +4,8 @@
       <img class="card-img" src="@/assets/loading.gif" alt="Loading GIF" />
     </div>
     <div
-      class="d-flex justify-content-center text-white bg-primary color-fade rounded mb-1 mt-3"
-    >Please wait...</div>
+      class="d-flex text-uppercase justify-content-center text-white bg-primary color-fade rounded mb-1 mt-3"
+    >be patient page is loading ...</div>
   </div>
 </template>
 

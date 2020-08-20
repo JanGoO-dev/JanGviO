@@ -8,7 +8,7 @@
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
-        class="card-title bg-primary rounded-all card-profile shadow-lg"
+        class="card-title bg-danger rounded-all card-profile shadow-lg"
         :style="{ backgroundImage: 'url(' + require('@/assets/' + profile) + ')' }"
       >
         <div class="profile-details mt-3 bg-transparent">
@@ -19,7 +19,9 @@
         </div>
       </div>
       <div class="feed align-self-end">
-        <div class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around text-muted">
+        <div
+          class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around text-muted bg-light"
+        >
           <span>Like</span>
           <span>Share</span>
           <span>Coment</span>
@@ -70,7 +72,7 @@ export default {
 }
 .bg-img {
   margin-top: 70px;
-  height: 22rem;
+  height: 18rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
