@@ -44,6 +44,9 @@ export default {
 .rounded-full {
   border-radius: 100%;
 }
+.color-fade {
+  opacity: 0.6;
+}
 // button[type="button"] {
 //   border-bottom-right-radius: 10px !important;
 //   border-bottom-left-radius: 10px !important;

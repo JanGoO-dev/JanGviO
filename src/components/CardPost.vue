@@ -1,19 +1,19 @@
 <template>
   <div
     class="card bg-img shadow border-0 rounded-all"
+    :class="{ flashing: $store.getters.get_loading }"
     :style="{
         backgroundImage: 'url(' + require('@/assets/' + image) + ')'
       }"
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
-        class="card-title bg-light rounded-all card-profile shadow-lg"
+        class="card-title bg-primary rounded-all card-profile shadow-lg"
         :style="{ backgroundImage: 'url(' + require('@/assets/' + profile) + ')' }"
       >
-        <div class="profile-details mt-1 bg-transparent">
-          <span class="h6">
-            <span class="text-dark">@UserName</span>
-            <br />
+        <div class="profile-details mt-3 bg-transparent">
+          <span class="d-flex flex-column justify-content-center">
+            <div class="text-primary color-fade font-weight-bold">@ UserName</div>
             <small class="text-muted">6 days ago - 03/05/2020</small>
           </span>
         </div>
@@ -40,11 +40,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .profile-details {
   position: absolute;
   left: calc(70px);
   width: calc(6rem * 2);
+  span {
+    font-size: 12px;
+  }
 }
 .feed {
   position: relative;
@@ -58,8 +61,8 @@ export default {
 }
 .card-profile {
   margin-top: -80px;
-  height: 80px;
-  width: 80px;
+  height: 80px !important;
+  width: 80px !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -71,5 +74,19 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.flashing {
+  filter: brightness(0);
+  animation: flash 1.2s infinite;
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.123;
+  }
 }
 </style>
