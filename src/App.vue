@@ -47,6 +47,9 @@ export default {
 .color-fade {
   opacity: 0.6;
 }
+.text-fade {
+  opacity: 0.2;
+}
 // button[type="button"] {
 //   border-bottom-right-radius: 10px !important;
 //   border-bottom-left-radius: 10px !important;

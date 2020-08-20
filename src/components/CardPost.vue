@@ -8,7 +8,7 @@
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
-        class="card-title bg-danger rounded-all card-profile shadow-lg"
+        class="card-title bg-light rounded-all card-profile shadow-lg"
         :style="{ backgroundImage: 'url(' + require('@/assets/' + profile) + ')' }"
       >
         <div class="profile-details mt-3 bg-transparent">
