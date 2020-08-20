@@ -20,11 +20,29 @@
       </div>
       <div class="feed align-self-end">
         <div
-          class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around text-muted bg-light"
+          class="strip px-3 py-2 rounded-all shadow-lg d-flex justify-content-around text-muted bg-light"
         >
-          <span>Like</span>
-          <span>Share</span>
-          <span>Coment</span>
+          <span class="bg-transparent">
+            <img
+              class="bg-transparent"
+              src="@/assets/happy.svg"
+              width="25"
+              height="25"
+              alt="Happy Emogi"
+            />
+          </span>
+          <span class="bg-transparent">
+            <img class="bg-transparent" src="@/assets/share.svg" width="25" height="25" alt="Share" />
+          </span>
+          <span class="bg-transparent">
+            <img
+              class="bg-transparent"
+              src="@/assets/comment.svg"
+              width="25"
+              height="25"
+              alt="Comment"
+            />
+          </span>
         </div>
       </div>
     </div>
