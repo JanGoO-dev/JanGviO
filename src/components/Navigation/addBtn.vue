@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       triggerHREF: "#0",
-      triggerStatus: "Show Navigation",
+      triggerStatus: "Show Navigation"
     };
   },
   methods: {
@@ -62,15 +62,15 @@ export default {
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
 .rotate-forward {
   transition: ease-in-out 0.3s;
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 
 .rotate-back {
