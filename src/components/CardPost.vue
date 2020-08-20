@@ -10,7 +10,7 @@
         class="card-title bg-light rounded-all card-profile shadow-lg"
         :style="{ backgroundImage: 'url(' + require('@/assets/' + profile) + ')' }"
       >
-        <div class="profile-details mt-1">
+        <div class="profile-details mt-1 bg-transparent">
           <span class="h6">
             <span class="text-dark font-weight-bold">@UserName</span>
             <br />
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="feed align-self-end">
-        <div class="strip p-3 rounded-all shadow d-flex justify-content-around">
+        <div class="strip px-3 py-2 rounded-all shadow d-flex justify-content-around">
           <span>Like</span>
           <span>Share</span>
           <span>Coment</span>
@@ -43,22 +43,23 @@ export default {
 <style scoped>
 .profile-details {
   position: absolute;
-  left: 6.5rem;
+  left: calc(80px);
   width: calc(6rem * 2);
 }
 .feed {
   position: relative;
+  width: 100%;
 }
 .strip {
   position: absolute;
-  top: -70px;
-  left: -8rem;
-  width: calc(22rem + 2.6rem);
+  top: -50px;
+  left: -6.1rem;
+  right: -2rem;
 }
 .card-profile {
   margin-top: -80px;
-  height: 5.5rem;
-  width: 5.5rem;
+  height: 80px;
+  width: 80px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
