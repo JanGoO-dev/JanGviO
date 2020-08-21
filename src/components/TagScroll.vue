@@ -1,25 +1,75 @@
 <template>
-  <div class="mt-1 mb-5">
-    <div class="p-2">
-      <div class="bg-light color-fade rounded-all d-flex flex-row justify-content-start">
-        <span
-          v-for="(tag, index) in 13"
-          :key="index"
-          class="primary-hover bg-white mr-2 mb-2 px-4 rounded-lg"
-        >Tages</span>
+  <div class="mt-1 mb-5 mx-4">
+    <VueSlickCarousel v-bind="settings">
+      <div v-for="(tag, index) in 23" :key="index" class="text-center py-2">
+        <span class="primary-hover bg-white px-4 py-2 mx-2 rounded-tip"
+          >span</span
+        >
       </div>
-    </div>
+    </VueSlickCarousel>
   </div>
 </template>
 
 <script>
-export default {};
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
+export default {
+  name: "MyComponent",
+  components: { VueSlickCarousel },
+  data() {
+    return {
+      settings: {
+        slidesToShow: 12,
+        slidesToScroll: 6,
+        variableWidth: true,
+        focusOnSelect: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
+    };
+  },
+};
 </script>
 
-<style scoped>
+<style>
 .primary-hover:hover {
   color: #fff;
   background: #007bff !important;
   cursor: pointer;
+}
+.primary-hover:focus {
+  border: none !important;
+}
+.rounded-tip {
+  border-radius: 30px !important;
+}
+.slick-slide div {
+  outline: none;
 }
 </style>
