@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container wrap">
-      <ul id="menu" class="bg-white rounded-full">
+      <ul id="menu" :style="varColor" class="bg-white rounded-full">
         <a
           class="menu-button d-flex justify-content-center"
           :href="triggerHREF"
@@ -45,7 +45,8 @@ export default {
   data() {
     return {
       triggerHREF: "#0",
-      triggerStatus: "Show Navigation"
+      triggerStatus: "Show Navigation",
+      variableColor: "#1fb6ff",
     };
   },
   methods: {
@@ -62,8 +63,34 @@ export default {
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
+    },
+  },
+  computed: {
+    varColor() {
+      return {
+        "--var-color": this.variableColor,
+      };
+    },
+    curRoute() {
+      return this.$route.fullPath;
+    },
+  },
+  mounted() {
+    if (this.$route.fullPath === "/premium") {
+      this.variableColor = "gold";
+    } else {
+      this.variableColor = "#1fb6ff";
     }
-  }
+  },
+  watch: {
+    curRoute() {
+      if (this.$route.fullPath === "/premium") {
+        this.variableColor = "gold";
+      } else {
+        this.variableColor = "#1fb6ff";
+      }
+    },
+  },
 };
 </script>
 
@@ -103,7 +130,7 @@ export default {
   top: 53%;
   margin: -30px 0 0 -30px;
   border-radius: 50%;
-  background: #1fb6ff;
+  background: var(--var-color);
   background-size: 100%;
   overflow: hidden;
   text-decoration: none;
@@ -130,7 +157,7 @@ export default {
   top: 60%;
   margin: -40px 0 0 -40px;
   border-radius: 50%;
-  background-color: #1fb6ff;
+  background-color: var(--var-color);
   transform: translate(0px, 0px);
   transition: transform 500ms;
   z-index: -9;
@@ -139,7 +166,7 @@ export default {
 
 .menu-item:hover {
   opacity: 0.7;
-  box-shadow: 0 5px 10px #1fb6ff;
+  box-shadow: 0 5px 10px var(--var-color);
 }
 
 .menu-item a {

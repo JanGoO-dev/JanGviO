@@ -1,11 +1,13 @@
 <template>
-  <div class="alert bg-white rounded-all w-50 mx-auto shadow-lg">
-    <div class="card border-0 rounded-all custom-loading mx-auto">
-      <img class="card-img" src="@/assets/loading.gif" alt="Loading GIF" />
+  <div class="loading-page bg-white">
+    <div class="custom-loading bg-transparent">
+      <img
+        src="@/assets/jangvio.svg"
+        class="logo-shadow-lg"
+        alt="JanGviO SVG"
+      />
+      <img class="card-img mt-5" src="@/assets/loading.gif" alt="Loading GIF" />
     </div>
-    <div
-      class="d-flex text-uppercase justify-content-center text-white bg-primary color-fade rounded mb-1 mt-3"
-    >be patient page is loading ...</div>
   </div>
 </template>
 
@@ -14,9 +16,15 @@ export default {};
 </script>
 
 <style scoped>
+.loading-page {
+  display: flex;
+  height: calc(100vh - 60px);
+  justify-content: center;
+  align-items: center;
+}
 .custom-loading {
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
   width: 140px;
 }
 </style>

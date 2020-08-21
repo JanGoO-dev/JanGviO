@@ -1,8 +1,10 @@
 <template>
   <div class="mt-1 mb-5 mx-4">
-    <VueSlickCarousel v-bind="settings">
+    <VueSlickCarousel :style="varColor" v-bind="settings">
       <div v-for="(tag, index) in 23" :key="index" class="text-center py-2">
-        <span class="primary-hover bg-white px-4 py-2 mx-2 rounded-tip"
+        <span
+          class="bg-white text-secondary px-4 py-2 mx-2 rounded-tip"
+          :class="{ 'primary-hover': !premium, 'premium-hover': premium }"
           >span</span
         >
       </div>
@@ -17,6 +19,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
+  props: ["premium"],
   name: "MyComponent",
   components: { VueSlickCarousel },
   data() {
@@ -26,6 +29,7 @@ export default {
         slidesToScroll: 6,
         variableWidth: true,
         focusOnSelect: true,
+        adaptiveHeight: true,
         responsive: [
           {
             breakpoint: 1024,
@@ -52,7 +56,20 @@ export default {
           },
         ],
       },
+      variableColor: "#007bff",
     };
+  },
+  computed: {
+    varColor() {
+      return {
+        "--var-color": this.variableColor,
+      };
+    },
+  },
+  mounted() {
+    if (this.premium) {
+      this.variableColor = "gold";
+    }
   },
 };
 </script>
@@ -63,6 +80,11 @@ export default {
   background: #007bff !important;
   cursor: pointer;
 }
+.premium-hover:hover {
+  color: #fff;
+  background: gold !important;
+  cursor: pointer;
+}
 .rounded-tip {
   border-radius: 30px !important;
 }
@@ -70,12 +92,12 @@ export default {
   outline: none;
 }
 .slick-prev:before {
-  color: #007bff;
+  color: var(--var-color);
 }
 .slick-next:before {
-  color: #007bff;
+  color: var(--var-color);
 }
 .slick-current {
-  color: #007bff;
+  color: var(--var-color);
 }
 </style>

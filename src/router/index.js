@@ -1,24 +1,36 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Explore from "../views/Explore.vue";
+import Premium from "../views/Premium";
+import Following from "../views/Following";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Explore",
+    component: Explore,
   },
   {
     path: "/menu",
-    name: "Home",
-    component: Home,
+    name: "Explore",
+    component: Explore,
   },
   {
     path: "/0",
-    name: "Home",
-    component: Home,
+    name: "Explore",
+    component: Explore,
+  },
+  {
+    path: "/premium",
+    name: "Premium",
+    component: Premium,
+  },
+  {
+    path: "/following",
+    name: "Following",
+    component: Following,
   },
 ];
 

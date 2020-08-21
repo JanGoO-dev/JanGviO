@@ -1,19 +1,36 @@
 <template>
   <div
-    class="card bg-img shadow border-0 rounded-all"
-    :class="{ flashing: $store.getters.get_loading }"
+    class="card bg-img shadow rounded-all"
+    :class="{
+      flashing: $store.getters.get_loadingPost,
+      'border-0': !cardBorder,
+      'premium-border-bgImg': premium,
+    }"
     :style="{
-        backgroundImage: 'url(' + require('@/assets/' + image) + ')'
-      }"
+      backgroundImage: 'url(' + require('@/assets/' + image) + ')',
+      height: cardHeight,
+      width: cardWidth,
+    }"
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
         class="card-title bg-light rounded-all card-profile shadow-lg"
-        :style="{ backgroundImage: 'url(' + require('@/assets/' + profile) + ')' }"
+        :class="{ 'premium-border-avatar': premium }"
+        :style="{
+          backgroundImage: 'url(' + require('@/assets/' + profile) + ')',
+        }"
       >
         <div class="profile-details mt-3 bg-transparent">
           <span class="d-flex flex-column justify-content-center">
-            <div class="text-primary color-fade font-weight-bold">@ UserName</div>
+            <div
+              class="color-fade font-weight-bold"
+              :class="{
+                'text-primary': !premium,
+                'text-warning': premium,
+              }"
+            >
+              @ UserName
+            </div>
             <small class="text-muted">6 days ago - 03/05/2020</small>
           </span>
         </div>
@@ -32,7 +49,13 @@
             />
           </span>
           <span class="bg-transparent">
-            <img class="bg-transparent" src="@/assets/share.svg" width="25" height="25" alt="Share" />
+            <img
+              class="bg-transparent"
+              src="@/assets/share.svg"
+              width="25"
+              height="25"
+              alt="Share"
+            />
           </span>
           <span class="bg-transparent">
             <img
@@ -51,19 +74,25 @@
 
 <script>
 export default {
+  props: ["cardHeight", "cardWidth", "cardBorder", "premium"],
   data() {
     return {
       image: "card.jpg",
-      profile: "Male-Avatar.png"
+      profile: "Male-Avatar.png",
     };
-  }
+  },
+  beforeMount() {
+    setTimeout(() => {
+      this.$store.commit("toggle_loadingPost");
+    }, 4000);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .profile-details {
   position: absolute;
-  left: calc(70px);
+  left: calc(80px);
   width: calc(6rem * 2);
   span {
     font-size: 12px;
@@ -90,7 +119,6 @@ export default {
 }
 .bg-img {
   margin-top: 70px;
-  height: 18rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
