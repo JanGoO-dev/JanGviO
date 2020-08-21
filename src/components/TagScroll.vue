@@ -63,13 +63,19 @@ export default {
   background: #007bff !important;
   cursor: pointer;
 }
-.primary-hover:focus {
-  border: none !important;
-}
 .rounded-tip {
   border-radius: 30px !important;
 }
 .slick-slide div {
   outline: none;
+}
+.slick-prev:before {
+  color: #007bff;
+}
+.slick-next:before {
+  color: #007bff;
+}
+.slick-current {
+  color: #007bff;
 }
 </style>
