@@ -5,8 +5,7 @@
         <span
           class="bg-white text-secondary px-4 py-2 mx-2 rounded-tip"
           :class="{ 'primary-hover': !premium, 'premium-hover': premium }"
-          >span</span
-        >
+        >span</span>
       </div>
     </VueSlickCarousel>
   </div>
@@ -36,52 +35,52 @@ export default {
             settings: {
               slidesToShow: 3,
               slidesToScroll: 3,
-              infinite: true,
-            },
+              infinite: true
+            }
           },
           {
             breakpoint: 600,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
-              initialSlide: 2,
-            },
+              initialSlide: 2
+            }
           },
           {
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-        ],
+              slidesToScroll: 1
+            }
+          }
+        ]
       },
-      variableColor: "#007bff",
+      variableColor: "#007bff"
     };
   },
   computed: {
     varColor() {
       return {
-        "--var-color": this.variableColor,
+        "--var-color": this.variableColor
       };
-    },
+    }
   },
   mounted() {
     if (this.premium) {
       this.variableColor = "gold";
     }
-  },
+  }
 };
 </script>
 
 <style>
 .primary-hover:hover {
-  color: #fff;
+  color: #fff !important;
   background: #007bff !important;
   cursor: pointer;
 }
 .premium-hover:hover {
-  color: #fff;
+  color: #fff !important;
   background: gold !important;
   cursor: pointer;
 }
