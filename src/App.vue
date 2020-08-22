@@ -4,8 +4,9 @@
       <Loading></Loading>
     </div>
     <div v-show="!$store.getters.get_loading">
-      <NavBar></NavBar>
+      <NavBar id="left-top-nav"></NavBar>
       <router-view />
+      <MobileNav id="bottom-m-nav"></MobileNav>
     </div>
   </div>
 </template>
@@ -13,10 +14,12 @@
 <script>
 import NavBar from "./components/Navigation/NavBar";
 import Loading from "./components/Loading";
+import MobileNav from "./components/Navigation/MobileNav";
 export default {
   components: {
     NavBar,
-    Loading
+    Loading,
+    MobileNav
   },
   beforeMount() {
     setTimeout(() => {
@@ -123,5 +126,16 @@ img.target-addBtn {
   -ms-transform: rotate(-0deg);
   -o-transform: rotate(-0deg);
   transform: rotate(-0deg);
+}
+#bottom-m-nav {
+  display: none;
+}
+@media screen and (max-width: 1070px) {
+  #left-top-nav {
+    display: none;
+  }
+  #bottom-m-nav {
+    display: block;
+  }
 }
 </style>

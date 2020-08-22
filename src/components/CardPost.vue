@@ -35,26 +35,26 @@
       </div>
       <div class="feed align-self-end" :class="{ 'feed-hidden': curCardIndex !== cardIndex }">
         <div
-          class="strip px-3 py-2 rounded-all shadow-lg d-flex justify-content-around text-muted bg-light"
+          class="strip px-3 py-1 rounded-all shadow-lg d-flex justify-content-around text-muted bg-light"
         >
           <span class="bg-transparent">
             <img
               class="bg-transparent"
               src="@/assets/happy.svg"
-              width="25"
-              height="25"
+              width="20"
+              height="20"
               alt="Happy Emogi"
             />
           </span>
           <span class="bg-transparent">
-            <img class="bg-transparent" src="@/assets/share.svg" width="25" height="25" alt="Share" />
+            <img class="bg-transparent" src="@/assets/share.svg" width="20" height="20" alt="Share" />
           </span>
           <span class="bg-transparent">
             <img
               class="bg-transparent"
               src="@/assets/comment.svg"
-              width="25"
-              height="25"
+              width="20"
+              height="20"
               alt="Comment"
             />
           </span>
@@ -108,9 +108,9 @@ export default {
 }
 .strip {
   position: absolute;
-  top: -50px;
-  left: -6.1rem;
-  right: -2rem;
+  top: -30px;
+  left: -6.2rem;
+  right: -2.2rem;
 }
 .card-profile-dimentions {
   margin-top: -86px !important;

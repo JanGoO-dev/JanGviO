@@ -78,7 +78,7 @@
       </div>
     </header>
     <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
-      <a href="#" class="bg-white pt-1 mb-5">
+      <a href="/" class="bg-white pt-1 mb-5">
         <img
           class="bg-white logo-shadow-sm"
           src="@/assets/jangvio.svg"

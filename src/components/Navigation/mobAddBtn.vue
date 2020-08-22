@@ -1,37 +1,37 @@
 <template>
   <div :style="varColor">
     <div class="container wrap">
-      <ul id="menu" class="bg-white rounded-full">
+      <ul id="mobMenu" class="bg-white rounded-full">
         <a
-          class="menu-button d-flex justify-content-center"
-          :href="triggerHREF"
-          :title="triggerStatus"
-          @click="toggleState"
+          class="mob-menu-button d-flex justify-content-center"
+          :href="mobTriggerHREF"
+          :title="mobTriggerStatus"
+          @click="mobToggleState"
         >
           <img
             src="@/assets/add.svg"
-            class="target-addBtn bg-transparent"
+            class="mob-target-addBtn bg-transparent"
             width="26"
             alt="Add Button Icon SVG"
           />
         </a>
-        <li class="menu-item">
-          <a href="#menu">
+        <li class="mob-menu-item">
+          <a href="#mobMenu">
             <span class="fas fa-github"></span>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="#menu">
+        <li class="mob-menu-item">
+          <a href="#mobMenu">
             <span class="fas fa-linkedin"></span>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="#menu">
+        <li class="mob-menu-item">
+          <a href="#mobMenu">
             <span class="fas fa-instagram"></span>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="#menu">
+        <li class="mob-menu-item">
+          <a href="#mobMenu">
             <span class="fas fa-twitter"></span>
           </a>
         </li>
@@ -44,22 +44,22 @@
 export default {
   data() {
     return {
-      triggerHREF: "#0",
-      triggerStatus: "Show Navigation",
+      mobTriggerHREF: "#0",
+      mobTtriggerStatus: "Show Navigation",
       variableColor: "#1fb6ff"
     };
   },
   methods: {
-    toggleState() {
-      var e = document.querySelector(".target-addBtn");
-      if (this.triggerHREF === "#menu") {
-        this.triggerHREF = "#0";
-        this.triggerStatus = "Hide Navigation";
+    mobToggleState() {
+      var e = document.querySelector(".mob-target-addBtn");
+      if (this.mobTriggerHREF === "#mobMenu") {
+        this.mobTriggerHREF = "#0";
+        this.mobTriggerStatus = "Hide Navigation";
         e.classList.remove("rotate-forward");
         e.classList.add("rotate-back");
       } else {
-        this.triggerHREF = "#menu";
-        this.triggerStatus = "Show Navigation";
+        this.mobTriggerHREF = "#mobMenu";
+        this.mobTriggerStatus = "Show Navigation";
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style scoped>
-#menu {
+#mobMenu {
   width: 70px;
   height: 70px;
   position: absolute;
@@ -107,12 +107,12 @@ export default {
   box-shadow: 0 4px 10px -10px #000;
 }
 
-.menu-button {
+.mob-menu-button {
   opacity: 0;
   z-index: -1;
 }
 
-.menu-button {
+.mob-menu-button {
   width: 55px;
   height: 55px;
   position: absolute;
@@ -127,18 +127,18 @@ export default {
   border: solid 2px white;
 }
 
-#menu:not(:target) > a:first-of-type,
-#menu:target > a:last-of-type {
+#mobMenu:not(:target) > a:first-of-type,
+#mobMenu:target > a:last-of-type {
   opacity: 1;
   z-index: 1;
 }
 
-#menu:not(:target) > .icon-plus:before,
-#menu:target > .icon-minus:before {
+#mobMenu:not(:target) > .icon-plus:before,
+#mobMenu:target > .icon-minus:before {
   opacity: 1;
 }
 
-.menu-item {
+.mob-menu-item {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -148,18 +148,18 @@ export default {
   margin: -40px 0 0 -40px;
   border-radius: 50%;
   background-color: var(--var-color);
-  transform: translate(0px, 0px);
+  transform: translate(10px, 0px);
   transition: transform 500ms;
   z-index: -9;
   transition: 0.2s;
 }
 
-.menu-item:hover {
+.mob-menu-item:hover {
   opacity: 0.7;
   box-shadow: 0 5px 10px var(--var-color);
 }
 
-.menu-item a {
+.mob-menu-item a {
   color: #fff;
   position: relative;
   top: 30%;
@@ -167,23 +167,23 @@ export default {
   text-decoration: none;
 }
 
-#menu:target > .menu-item:nth-child(5) {
-  transform: rotate(36deg) translateY(70px) rotate(300deg);
+#mobMenu:target > .mob-menu-item:nth-child(5) {
+  transform: rotate(136deg) translateY(70px) rotate(300deg);
   transition-delay: 0s;
 }
 
-#menu:target > .menu-item:nth-child(4) {
-  transform: rotate(5deg) translateY(95px) rotate(-20deg);
+#mobMenu:target > .mob-menu-item:nth-child(4) {
+  transform: rotate(175deg) translateY(95px) rotate(-20deg);
   transition-delay: 0.1s;
 }
 
-#menu:target > .menu-item:nth-child(2) {
-  transform: rotate(-23deg) translateY(103px) rotate(20deg);
+#mobMenu:target > .mob-menu-item:nth-child(2) {
+  transform: rotate(-153deg) translateY(107px) rotate(20deg);
   transition-delay: 0.2s;
 }
 
-#menu:target > .menu-item:nth-child(3) {
-  transform: rotate(-52deg) translateY(95px) rotate(60deg);
+#mobMenu:target > .mob-menu-item:nth-child(3) {
+  transform: rotate(-118deg) translateY(95px) rotate(60deg);
   transition-delay: 0.3s;
 }
 </style>

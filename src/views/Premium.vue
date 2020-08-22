@@ -1,5 +1,8 @@
 <template>
   <div class="premium">
+    <div class="d-flex justify-content-end w-100">
+      <img class="logo-shadow-sm" src="@/assets/jangvio.svg" width="60" alt="JanGviO Logo" />
+    </div>
     <div class="display-4 text-fade">Premium</div>
     <TagScroll :premium="true"></TagScroll>
     <div id="post-wrap" class="card-group">
@@ -55,5 +58,29 @@ export default {
   row-gap: 1.9rem;
   column-gap: 6.2rem;
   margin: 0 5rem;
+}
+@media screen and (max-width: 1070px) {
+  img {
+    display: block;
+    margin-bottom: -30px;
+    z-index: 999;
+  }
+  .premium {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 1350px) {
+  #post-wrap {
+    margin: 0 1rem;
+  }
+}
+@media screen and (max-width: 1220px) {
+  #post-wrap {
+    grid-template-columns: repeat(1, auto);
+    margin: 0 1rem;
+  }
 }
 </style>
