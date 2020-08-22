@@ -95,14 +95,16 @@
           :class="{ sideAvatar: index === sideActiveItem }"
           @click="selectSideItem(index)"
         >
-          <img
-            src="@/assets/avatar.png"
-            width="30"
-            height="30"
-            alt="Profile Avatar"
-            class="bg-white"
-            :id="sideLink.tooltip"
-          />
+          <router-link :to="sideLink.path">
+            <img
+              src="@/assets/avatar.png"
+              width="30"
+              height="30"
+              alt="Profile Avatar"
+              class="bg-white"
+              :id="sideLink.tooltip"
+            />
+          </router-link>
           <b-tooltip
             :target="sideLink.tooltip"
             placement="right"
@@ -160,7 +162,7 @@ export default {
           id: "followingBtn"
         }
       ],
-      sideLinks: [{ tooltip: "One" }],
+      sideLinks: [{ path: "/profile", tooltip: "One" }],
       activeItem: 0,
       sideActiveItem: null,
       variableColor: "#1fb6ff"

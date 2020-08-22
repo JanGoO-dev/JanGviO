@@ -14,8 +14,8 @@
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
-        class="card-title bg-light rounded-all card-profile shadow"
-        :class="{ 'premium-border-avatar': premium }"
+        class="card-title bg-light rounded-all card-profile"
+        :class="{ 'premium-border-avatar': premium, 'card-profile-dimentions': curCardIndex !== cardIndex, 'rounded-circle': curCardIndex !== cardIndex, 'shadow': curCardIndex === cardIndex }"
         :style="{
           backgroundImage: 'url(' + require('@/assets/' + profile) + ')',
         }"
@@ -91,7 +91,8 @@ export default {
 <style lang="scss" scoped>
 .profile-details {
   position: absolute;
-  left: calc(80px);
+  left: calc(77px);
+  top: -4px;
   width: calc(6rem * 2);
   span {
     font-size: 12px;
@@ -111,14 +112,20 @@ export default {
   left: -6.1rem;
   right: -2rem;
 }
+.card-profile-dimentions {
+  margin-top: -86px !important;
+  height: 54px !important;
+  width: 60px !important;
+}
 .card-profile {
   margin-top: -80px;
-  height: 80px !important;
-  width: 80px !important;
+  height: 80px;
+  width: 80px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
+  transition: ease-in-out 0.3s;
 }
 .bg-img {
   margin-top: 70px;

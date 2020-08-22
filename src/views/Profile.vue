@@ -1,7 +1,5 @@
 <template>
-  <div class="following">
-    <div class="display-4 text-fade">Following</div>
-    <TagScroll :premium="false"></TagScroll>
+  <div class="profile">
     <div class="card-container">
       <div id="post-wrap" class="card-group">
         <CardPost
@@ -23,10 +21,9 @@
 
 <script>
 import CardPost from "../components/CardPost";
-import TagScroll from "../components/TagScroll";
 export default {
-  name: "Following",
-  components: { CardPost, TagScroll },
+  name: "Profile",
+  components: { CardPost },
   data() {
     return {
       selectItem: null
@@ -45,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.following {
+.profile {
   margin-top: 100px;
   margin-left: 120px;
   margin-right: 50px;
@@ -53,7 +50,7 @@ export default {
 }
 #post-wrap {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(2, auto);
   row-gap: 1.8rem;
   column-gap: 4.2rem;
 }

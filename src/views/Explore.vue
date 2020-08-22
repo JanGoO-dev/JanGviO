@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="explore">
     <div class="display-4 text-fade">Explore</div>
     <TagScroll :premium="false"></TagScroll>
     <div class="card-container">
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.explore {
   margin-top: 100px;
   margin-left: 120px;
   margin-right: 50px;

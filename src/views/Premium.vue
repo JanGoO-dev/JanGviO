@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="premium">
     <div class="display-4 text-fade">Premium</div>
     <TagScroll :premium="true"></TagScroll>
     <div id="post-wrap" class="card-group">
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.premium {
   margin-top: 100px;
   margin-left: 120px;
   margin-right: 50px;
