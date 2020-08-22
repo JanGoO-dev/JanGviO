@@ -1,9 +1,6 @@
 <template>
   <div>
-    <header
-      id="main-nav"
-      class="navbar navbar-expand-lg navbar-light bg-white ml-5 fixed-top"
-    >
+    <header id="main-nav" class="navbar navbar-expand-lg navbar-light bg-white ml-5 fixed-top">
       <div class="d-flex flex-column align-items-left ml-5" href="#">
         <span class="bg-white h5 mb-0">JanGvio</span>
         <small class="bg-white text-muted">Lorem Ipsem Maseep!</small>
@@ -33,8 +30,21 @@
             placement="bottom"
             offset="0"
             variant="primary"
-            >{{ mainLink.tooltip }}</b-tooltip
-          >
+          >{{ mainLink.tooltip }}</b-tooltip>
+        </div>
+
+        <div class="bg-white" :style="varColor">
+          <div v-b-modal.searchBtn>
+            <img
+              :src="require(`@/assets/search.svg`)"
+              width="30"
+              height="30"
+              alt="Profile Avatar"
+              class="target bg-white"
+              id="searchModal"
+            />
+          </div>
+          <b-tooltip target="searchModal" placement="bottom" offset="0" variant="primary">Search</b-tooltip>
         </div>
       </div>
       <div id="addBtn" class="pl-2">
@@ -50,9 +60,7 @@
               $router.currentRoute.fullPath === '/premium',
           }"
           class="btn btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign In
-        </button>
+        >Sign In</button>
         <button
           v-b-modal.signUpModal
           type="button"
@@ -61,17 +69,15 @@
             'btn-warning': $router.currentRoute.fullPath === '/premium',
           }"
           class="btn btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign Up
-        </button>
-        <SignInModal></SignInModal>
-        <SignUpModal></SignUpModal>
+        >Sign Up</button>
+        <div class="position-fixed">
+          <SignInModal></SignInModal>
+          <SignUpModal></SignUpModal>
+          <SearchModal></SearchModal>
+        </div>
       </div>
     </header>
-    <header
-      id="aside"
-      class="navbar navbar-light bg-white flex-column fixed-bottom h-100"
-    >
+    <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
       <a href="#" class="bg-white pt-1 mb-5">
         <img
           class="bg-white logo-shadow-sm"
@@ -103,8 +109,7 @@
             offset="0"
             variant="primary"
             class="tooltip-right"
-            >{{ sideLink.tooltip }}</b-tooltip
-          >
+          >{{ sideLink.tooltip }}</b-tooltip>
         </div>
       </div>
     </header>
@@ -115,40 +120,50 @@
 import addBtn from "../Navigation/addBtn";
 import SignInModal from "../Auth/SignInModal";
 import SignUpModal from "../Auth/SignUpModal";
+import SearchModal from "../SearchModal";
 export default {
   components: {
     addBtn,
     SignInModal,
     SignUpModal,
+    SearchModal
   },
   data() {
     return {
       mainLinks: [
-        { path: "/", tooltip: "Explore", invisible: false, src: "explore.svg" },
+        {
+          path: "/",
+          tooltip: "Explore",
+          invisible: false,
+          src: "explore.svg",
+          id: "exploreBtn"
+        },
         {
           path: "/premium",
           tooltip: "Premium",
           invisible: false,
           src: "premium.svg",
+          id: "premiumBtn"
         },
-        { path: "", tooltip: "Empty", invisible: true, src: "avatar.png" },
+        {
+          path: "",
+          tooltip: "Empty",
+          invisible: true,
+          src: "avatar.png",
+          id: ""
+        },
         {
           path: "/following",
           tooltip: "Following",
           invisible: false,
           src: "following.svg",
-        },
-        {
-          path: "#search",
-          tooltip: "Search",
-          invisible: false,
-          src: "search.svg",
-        },
+          id: "followingBtn"
+        }
       ],
       sideLinks: [{ tooltip: "One" }],
       activeItem: 0,
       sideActiveItem: null,
-      variableColor: "#1fb6ff",
+      variableColor: "#1fb6ff"
     };
   },
   methods: {
@@ -157,7 +172,7 @@ export default {
     },
     selectSideItem(i) {
       this.sideActiveItem = i;
-    },
+    }
   },
   computed: {
     curPath() {
@@ -165,12 +180,12 @@ export default {
     },
     varColor() {
       return {
-        "--var-color": this.variableColor,
+        "--var-color": this.variableColor
       };
     },
     curRoute() {
       return this.$route.fullPath;
-    },
+    }
   },
   mounted() {
     for (var i = 0; i < this.mainLinks.length; i++) {
@@ -192,8 +207,8 @@ export default {
       } else {
         this.variableColor = "#1fb6ff";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -251,5 +266,8 @@ export default {
 .tooltip {
   margin: 20px;
   font-size: 18px;
+}
+div:focus {
+  outline: none !important;
 }
 </style>

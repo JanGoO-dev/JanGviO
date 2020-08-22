@@ -14,12 +14,12 @@ const routes = [
   },
   {
     path: "/menu",
-    name: "Explore",
+    name: "Menu",
     component: Explore,
   },
   {
     path: "/0",
-    name: "Explore",
+    name: "MenuClose",
     component: Explore,
   },
   {

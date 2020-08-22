@@ -16,13 +16,13 @@ import Loading from "./components/Loading";
 export default {
   components: {
     NavBar,
-    Loading,
+    Loading
   },
   beforeMount() {
     setTimeout(() => {
       this.$store.commit("toggle_loading");
     }, 2000);
-  },
+  }
 };
 </script>
 
@@ -102,5 +102,26 @@ export default {
 }
 .premium-border-avatar {
   border: solid 2px gold !important;
+}
+img.target-addBtn {
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+.rotate-forward {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.rotate-back {
+  -webkit-transform: rotate(-0deg);
+  -moz-transform: rotate(-0deg);
+  -ms-transform: rotate(-0deg);
+  -o-transform: rotate(-0deg);
+  transform: rotate(-0deg);
 }
 </style>

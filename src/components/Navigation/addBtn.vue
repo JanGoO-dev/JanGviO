@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div :style="varColor">
     <div class="container wrap">
-      <ul id="menu" :style="varColor" class="bg-white rounded-full">
+      <ul id="menu" class="bg-white rounded-full">
         <a
           class="menu-button d-flex justify-content-center"
           :href="triggerHREF"
@@ -10,7 +10,7 @@
         >
           <img
             src="@/assets/add.svg"
-            class="target bg-transparent"
+            class="target-addBtn bg-transparent"
             width="26"
             alt="Add Button Icon SVG"
           />
@@ -46,12 +46,13 @@ export default {
     return {
       triggerHREF: "#0",
       triggerStatus: "Show Navigation",
-      variableColor: "#1fb6ff",
+      variableColor: "#1fb6ff"
     };
   },
   methods: {
     toggleState() {
-      var e = document.querySelector(".target");
+      var e = document.querySelector(".target-addBtn");
+      console.log(e);
       if (this.triggerHREF === "#menu") {
         this.triggerHREF = "#0";
         this.triggerStatus = "Hide Navigation";
@@ -63,17 +64,17 @@ export default {
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
-    },
+    }
   },
   computed: {
     varColor() {
       return {
-        "--var-color": this.variableColor,
+        "--var-color": this.variableColor
       };
     },
     curRoute() {
       return this.$route.fullPath;
-    },
+    }
   },
   mounted() {
     if (this.$route.fullPath === "/premium") {
@@ -89,22 +90,12 @@ export default {
       } else {
         this.variableColor = "#1fb6ff";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
-.rotate-forward {
-  transition: ease-in-out 0.3s;
-  transform: rotate(135deg);
-}
-
-.rotate-back {
-  transition: ease-in-out 0.3s;
-  transform: rotate(0deg);
-}
-
 #menu {
   width: 70px;
   height: 70px;
