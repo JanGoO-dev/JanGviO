@@ -11,7 +11,7 @@
           :key="index"
           class="bg-white"
           :style="varColor"
-          :class="{ avatar: index === activeItem }"
+          :class="{ avatar: index === activeItem && curRoute == mainLink.path, avatar: curRoute == mainLink.path }"
           @click="selectItem(index)"
         >
           <router-link :to="mainLink.path">
@@ -78,14 +78,14 @@
       </div>
     </header>
     <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
-      <a href="/" class="bg-white pt-1 mb-5">
+      <router-link to="/" class="bg-white pt-1 mb-5">
         <img
           class="bg-white logo-shadow-sm"
           src="@/assets/jangvio.svg"
           width="40"
           alt="JanGvio Logo"
         />
-      </a>
+      </router-link>
       <div class="mb-auto bg-transparent mt-5">
         <div
           v-for="(sideLink, index) in sideLinks"

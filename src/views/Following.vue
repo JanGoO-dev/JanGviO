@@ -60,6 +60,9 @@ export default {
   row-gap: 1.8rem;
   column-gap: 4.2rem;
 }
+img {
+  display: none;
+}
 @media screen and (max-width: 1300px) {
   #post-wrap {
     grid-template-columns: repeat(2, auto);

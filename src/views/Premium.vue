@@ -59,6 +59,9 @@ export default {
   column-gap: 6.2rem;
   margin: 0 5rem;
 }
+img {
+  display: none;
+}
 @media screen and (max-width: 1070px) {
   img {
     display: block;

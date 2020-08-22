@@ -37,7 +37,6 @@ export default {
   },
   methods: {
     selectCard(i) {
-      console.log(i);
       this.selectItem = i;
     },
     deSelectCard() {
@@ -59,6 +58,9 @@ export default {
   grid-template-columns: repeat(4, auto);
   row-gap: 1.8rem;
   column-gap: 4.2rem;
+  div {
+    cursor: pointer;
+  }
 }
 img {
   display: none;
