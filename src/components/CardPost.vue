@@ -14,7 +14,7 @@
   >
     <div class="d-flex card-img-overlay bg-transparent">
       <div
-        class="card-title bg-light rounded-all card-profile shadow-lg"
+        class="card-title bg-light rounded-all card-profile shadow"
         :class="{ 'premium-border-avatar': premium }"
         :style="{
           backgroundImage: 'url(' + require('@/assets/' + profile) + ')',
@@ -28,14 +28,12 @@
                 'text-primary': !premium,
                 'text-warning': premium,
               }"
-            >
-              @ UserName
-            </div>
+            >@ UserName</div>
             <small class="text-muted">6 days ago - 03/05/2020</small>
           </span>
         </div>
       </div>
-      <div class="feed align-self-end">
+      <div class="feed align-self-end" :class="{ 'feed-hidden': curCardIndex !== cardIndex }">
         <div
           class="strip px-3 py-2 rounded-all shadow-lg d-flex justify-content-around text-muted bg-light"
         >
@@ -49,13 +47,7 @@
             />
           </span>
           <span class="bg-transparent">
-            <img
-              class="bg-transparent"
-              src="@/assets/share.svg"
-              width="25"
-              height="25"
-              alt="Share"
-            />
+            <img class="bg-transparent" src="@/assets/share.svg" width="25" height="25" alt="Share" />
           </span>
           <span class="bg-transparent">
             <img
@@ -74,18 +66,25 @@
 
 <script>
 export default {
-  props: ["cardHeight", "cardWidth", "cardBorder", "premium"],
+  props: [
+    "cardHeight",
+    "cardWidth",
+    "cardBorder",
+    "premium",
+    "curCardIndex",
+    "cardIndex"
+  ],
   data() {
     return {
       image: "card.jpg",
-      profile: "Male-Avatar.png",
+      profile: "Male-Avatar.png"
     };
   },
   beforeMount() {
     setTimeout(() => {
       this.$store.commit("toggle_loadingPost");
     }, 4000);
-  },
+  }
 };
 </script>
 
@@ -101,6 +100,10 @@ export default {
 .feed {
   position: relative;
   width: 100%;
+  transition: ease-in-out 0.3s;
+}
+.feed-hidden {
+  opacity: 0;
 }
 .strip {
   position: absolute;

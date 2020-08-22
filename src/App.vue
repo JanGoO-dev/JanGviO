@@ -86,7 +86,7 @@ export default {
 }
 
 .premium-border-bgImg {
-  border: solid 5px gold !important;
+  border: solid 4px gold !important;
 }
 .premium-border-bgImg::before {
   content: "Premium";
@@ -98,7 +98,7 @@ export default {
   right: 2rem;
   padding: 1px 20px;
   border-radius: 30px;
-  color: white;
+  color: rgb(114, 97, 0);
 }
 .premium-border-avatar {
   border: solid 2px gold !important;

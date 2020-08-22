@@ -7,8 +7,8 @@
       button-size="sm"
       title-class="h5 bg-transparent text-white"
       title="Sign Up"
-      header-bg-variant="primary"
-      header-border-variant="primary"
+      :header-bg-variant="curMode"
+      :header-border-variant="curMode"
       header-close-variant="white"
       header-class="rounded-0"
       footer-class="button border-0"
@@ -17,8 +17,8 @@
       dialog-class="bg-transparent"
       footer-bg-variant="light"
       ok-title="Sign Up"
-      ok-variant="primary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-      cancel-variant="outline-primary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
+      :ok-variant="curBtnMode"
+      cancel-variant="outline-secondary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
     >
       <div class="px-4 pt-3">
         <SignUpForm></SignUpForm>
@@ -32,6 +32,25 @@ import SignUpForm from "../Auth/SignUpForm";
 export default {
   components: {
     SignUpForm
+  },
+  computed: {
+    curRoute() {
+      return this.$route.fullPath;
+    },
+    curMode() {
+      if (this.curRoute === "/premium") {
+        return "warning";
+      } else {
+        return "primary";
+      }
+    },
+    curBtnMode() {
+      if (this.curRoute === "/premium") {
+        return "warning px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right";
+      } else {
+        return "primary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right";
+      }
+    }
   }
 };
 </script>

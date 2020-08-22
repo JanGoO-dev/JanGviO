@@ -4,6 +4,10 @@
     <TagScroll :premium="true"></TagScroll>
     <div id="post-wrap" class="card-group">
       <CardPost
+        @mouseenter.native="selectCard(index)"
+        @mouseleave.native="deSelectCard"
+        :curCardIndex="selectItem"
+        :cardIndex="index"
         cardHeight="30rem"
         cardWidth="auto"
         :cardBorder="true"
@@ -21,6 +25,20 @@ import TagScroll from "../components/TagScroll";
 export default {
   name: "Premium",
   components: { CardPost, TagScroll },
+  data() {
+    return {
+      selectItem: null
+    };
+  },
+  methods: {
+    selectCard(i) {
+      console.log(i);
+      this.selectItem = i;
+    },
+    deSelectCard() {
+      this.selectItem = null;
+    }
+  }
 };
 </script>
 

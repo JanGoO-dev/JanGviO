@@ -67,7 +67,7 @@ button {
   border-bottom-right-radius: 10px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 20%;
+  background-size: 30%;
 }
 .padding-top-bottom {
   padding-top: 30px;
