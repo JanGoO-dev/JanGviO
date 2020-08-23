@@ -1,21 +1,21 @@
 <template>
   <div>
     <section id="mob-nav" class="bg-white w-100 d-flex align-items-center">
-      <header class="mobile-nav bg-white mx-4">
-        <div class="profile-btn">
+      <header class="mobile-nav bg-white ml-3 mr-3">
+        <div class="profile-btn bg-white">
           <router-link to="/profile">
             <img
               src="@/assets/avatar.png"
               width="35"
               height="35"
               alt="Profile Avatar"
-              class="bg-white"
+              class="bg-white m-2"
             />
           </router-link>
         </div>
         <mobAddBtn id="add-btn"></mobAddBtn>
         <div class="menu-btn">
-          <img src="@/assets/burger.svg" width="35" alt="Menu" />
+          <MobMenuBtn></MobMenuBtn>
         </div>
       </header>
     </section>
@@ -24,8 +24,9 @@
 
 <script>
 import mobAddBtn from "./mobAddBtn";
+import MobMenuBtn from "./MobMenuBtn";
 export default {
-  components: { mobAddBtn }
+  components: { mobAddBtn, MobMenuBtn }
 };
 </script>
 
