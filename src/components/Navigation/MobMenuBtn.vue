@@ -61,7 +61,7 @@ export default {
 // Brand Colour Palette
 $purple: #462882;
 $green: #1ef0a0;
-$blue: #4644fd;
+$blue: #007bff;
 $red: #ff3c4b;
 
 // this is what I use to place the menu thing wherever I want

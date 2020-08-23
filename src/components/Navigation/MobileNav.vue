@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="blur-backdrop"></div>
     <section id="mob-nav" class="bg-white w-100 d-flex align-items-center">
       <header class="mobile-nav bg-white ml-3 mr-3">
         <div class="profile-btn bg-white">
@@ -31,6 +32,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blur-backdrop {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.399);
+  backdrop-filter: blur(5px);
+}
 #mob-nav {
   position: fixed;
   bottom: 0;
