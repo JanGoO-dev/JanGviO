@@ -40,6 +40,8 @@ export default {
       var ML = document.querySelector(".menu-line");
       MT.classList.toggle("open");
       ML.classList.toggle("open");
+      var e = document.querySelector(".blur-backdrop");
+      e.classList.toggle("blur-backdrop-active");
     }
   }
 };

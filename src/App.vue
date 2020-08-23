@@ -138,4 +138,12 @@ img.target-addBtn {
     display: block;
   }
 }
+.blur-backdrop-active {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.399) !important;
+  backdrop-filter: blur(5px);
+}
 </style>
