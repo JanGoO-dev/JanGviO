@@ -14,12 +14,12 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ get_user.email }}</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Vestibulum at eros</li> -->
     </ul>
     <div class="card-body bg-transparent">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="#" class="card-link">View Details</a>
+      <a href="#" class="card-link">Edit Profile</a>
     </div>
   </div>
 </template>
