@@ -17,22 +17,26 @@
         </a>
         <li class="menu-item">
           <a href="#menu">
-            <span class="fas fa-github"></span>
+            <img src="@/assets/gif.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="menu-item">
           <a href="#menu">
-            <span class="fas fa-linkedin"></span>
+            <img src="@/assets/text.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="menu-item">
           <a href="#menu">
-            <span class="fas fa-instagram"></span>
+            <img src="@/assets/film.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="menu-item">
           <a href="#menu">
-            <span class="fas fa-twitter"></span>
+            <img
+              src="@/assets/photo-camera.svg"
+              width="20"
+              alt="Photo Camera Icon"
+            />
           </a>
         </li>
       </ul>
@@ -46,7 +50,7 @@ export default {
     return {
       triggerHREF: "#0",
       triggerStatus: "Show Navigation",
-      variableColor: "#1fb6ff"
+      variableColor: "#1fb6ff",
     };
   },
   methods: {
@@ -63,17 +67,17 @@ export default {
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
-    }
+    },
   },
   computed: {
     varColor() {
       return {
-        "--var-color": this.variableColor
+        "--var-color": this.variableColor,
       };
     },
     curRoute() {
       return this.$route.fullPath;
-    }
+    },
   },
   mounted() {
     if (this.$route.fullPath === "/premium") {
@@ -89,8 +93,8 @@ export default {
       } else {
         this.variableColor = "#1fb6ff";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -167,23 +171,30 @@ export default {
   text-decoration: none;
 }
 
+.menu-item a img {
+  position: absolute;
+  top: -0.1rem;
+  left: 0.6rem;
+  filter: invert(100%);
+}
+
 #menu:target > .menu-item:nth-child(5) {
-  transform: rotate(36deg) translateY(70px) rotate(300deg);
+  transform: rotate(36deg) translateY(70px) rotate(-40deg);
   transition-delay: 0s;
 }
 
 #menu:target > .menu-item:nth-child(4) {
-  transform: rotate(5deg) translateY(95px) rotate(-20deg);
+  transform: rotate(5deg) translateY(95px) rotate(-10deg);
   transition-delay: 0.1s;
 }
 
 #menu:target > .menu-item:nth-child(2) {
-  transform: rotate(-23deg) translateY(103px) rotate(20deg);
+  transform: rotate(-23deg) translateY(103px) rotate(0deg);
   transition-delay: 0.2s;
 }
 
 #menu:target > .menu-item:nth-child(3) {
-  transform: rotate(-52deg) translateY(95px) rotate(60deg);
+  transform: rotate(-52deg) translateY(95px) rotate(50deg);
   transition-delay: 0.3s;
 }
 </style>

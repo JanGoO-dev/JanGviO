@@ -103,7 +103,7 @@ export default {
   right: 40px;
   position: fixed;
   overflow: auto;
-  z-index: 9999;
+  z-index: 0;
 }
 img {
   display: none;

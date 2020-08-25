@@ -17,22 +17,26 @@
         </a>
         <li class="mob-menu-item">
           <a href="#mobMenu">
-            <span class="fas fa-github"></span>
+            <img src="@/assets/gif.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="mob-menu-item">
           <a href="#mobMenu">
-            <span class="fas fa-linkedin"></span>
+            <img src="@/assets/text.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="mob-menu-item">
           <a href="#mobMenu">
-            <span class="fas fa-instagram"></span>
+            <img src="@/assets/film.svg" width="20" alt="Photo Camera Icon" />
           </a>
         </li>
         <li class="mob-menu-item">
           <a href="#mobMenu">
-            <span class="fas fa-twitter"></span>
+            <img
+              src="@/assets/photo-camera.svg"
+              width="20"
+              alt="Photo Camera Icon"
+            />
           </a>
         </li>
       </ul>
@@ -52,6 +56,8 @@ export default {
   methods: {
     mobToggleState() {
       var e = document.querySelector(".mob-target-addBtn");
+      var el = document.querySelector(".blur-backdrop");
+      el.classList.toggle("blur-backdrop-active");
       if (this.mobTriggerHREF === "#mobMenu") {
         this.mobTriggerHREF = "#0";
         this.mobTriggerStatus = "Hide Navigation";
@@ -167,13 +173,20 @@ export default {
   text-decoration: none;
 }
 
+.mob-menu-item a img {
+  position: absolute;
+  top: -0.1rem;
+  left: 0.6rem;
+  filter: invert(100%);
+}
+
 #mobMenu:target > .mob-menu-item:nth-child(5) {
-  transform: rotate(136deg) translateY(70px) rotate(300deg);
+  transform: rotate(136deg) translateY(70px) rotate(-140deg);
   transition-delay: 0s;
 }
 
 #mobMenu:target > .mob-menu-item:nth-child(4) {
-  transform: rotate(175deg) translateY(95px) rotate(-20deg);
+  transform: rotate(175deg) translateY(95px) rotate(-180deg);
   transition-delay: 0.1s;
 }
 
@@ -183,7 +196,7 @@ export default {
 }
 
 #mobMenu:target > .mob-menu-item:nth-child(3) {
-  transform: rotate(-118deg) translateY(95px) rotate(60deg);
+  transform: rotate(-118deg) translateY(95px) rotate(120deg);
   transition-delay: 0.3s;
 }
 </style>

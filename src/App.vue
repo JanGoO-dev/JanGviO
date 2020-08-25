@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-body {
+html {
   background-color: #f8f9fa;
 }
 #app {

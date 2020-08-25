@@ -2,38 +2,119 @@
   <div>
     <div class="container bg-white">
       <div @click="toggleOpen" class="menu-toggle bg-white">
-        <img src="@/assets/burger.svg" width="35" class="bg-white" alt="Add Button" />
+        <img
+          src="@/assets/burger.svg"
+          width="35"
+          class="bg-white"
+          alt="Add Button"
+        />
       </div>
 
       <div class="menu-line">
-        <div class="btn-app">
-          <div class="fa fa-map-marker"></div>
+        <div
+          @click="
+            $router.push({ path: '/' });
+            toggleOpen();
+          "
+          class="btn-app"
+        >
+          <img
+            id="explore"
+            src="@/assets/explore.svg"
+            width="24"
+            alt="Explore SVG"
+          />
+          <b-tooltip target="explore" placement="lefts" variant="primary"
+            >Explore</b-tooltip
+          >
         </div>
-        <div class="btn-app">
-          <div class="fa fa-envelope"></div>
+        <div
+          @click="
+            $router.push({ path: '/premium' });
+            toggleOpen();
+          "
+          class="btn-app"
+        >
+          <img
+            id="premium"
+            src="@/assets/premium.svg"
+            width="24"
+            alt="Premium SVG"
+          />
+          <b-tooltip target="premium" placement="lefts" variant="primary"
+            >Premium</b-tooltip
+          >
         </div>
-        <div class="btn-app">
-          <div class="fa fa-video-camera"></div>
+        <div
+          @click="
+            $router.push({ path: '/following' });
+            toggleOpen();
+          "
+          class="btn-app"
+        >
+          <img
+            id="following"
+            src="@/assets/following.svg"
+            width="24"
+            alt="Following SVG"
+          />
+          <b-tooltip target="following" placement="lefts" variant="primary"
+            >Following</b-tooltip
+          >
         </div>
-        <div class="btn-app">
-          <div class="fa fa-soundcloud"></div>
+        <div v-b-modal.searchBtnMob @click="toggleOpen" class="btn-app">
+          <img
+            id="search"
+            src="@/assets/search.svg"
+            width="24"
+            alt="Search SVG"
+          />
+          <b-tooltip target="search" placement="lefts" variant="primary"
+            >Search</b-tooltip
+          >
         </div>
-        <div class="btn-app">
-          <div class="fa fa-graduation-cap"></div>
+        <div v-b-modal.signInModalMob @click="toggleOpen" class="btn-app">
+          <img
+            id="signin"
+            style="filter: invert(100%)"
+            src="@/assets/register.svg"
+            width="22"
+            alt="Sign In SVG"
+          />
+          <b-tooltip target="signin" placement="lefts" variant="primary"
+            >Sign In</b-tooltip
+          >
         </div>
-        <div class="btn-app">
-          <div class="fa fa-image"></div>
-        </div>
-        <div class="btn-app">
-          <div class="fa fa-vine"></div>
+        <div v-b-modal.signUpModalMob @click="toggleOpen" class="btn-app">
+          <img
+            style="transform: rotate(180deg); filter: invert(100%)"
+            id="signup"
+            src="@/assets/register.svg"
+            width="22"
+            alt="Sign Up SVG"
+          />
+          <b-tooltip target="signup" placement="lefts" variant="primary"
+            >Sign Up</b-tooltip
+          >
         </div>
       </div>
+      <SignInModalClone></SignInModalClone>
+      <SignUpModalClone></SignUpModalClone>
+      <SearchModalClone></SearchModalClone>
     </div>
   </div>
 </template>
 
 <script>
+import SignInModalClone from "../Auth/SignInModalClone";
+import SignUpModalClone from "../Auth/SignUpModalClone";
+import SearchModalClone from "../SearchModalClone";
 export default {
+  components: {
+    SignInModalClone,
+    SignUpModalClone,
+    SearchModalClone,
+  },
   methods: {
     toggleOpen() {
       var MT = document.querySelector(".menu-toggle");
@@ -42,8 +123,8 @@ export default {
       ML.classList.toggle("open");
       var e = document.querySelector(".blur-backdrop");
       e.classList.toggle("blur-backdrop-active");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -114,8 +195,9 @@ $red: #ff3c4b;
   color: #fff;
   text-align: center;
 
-  .fa {
-    line-height: 2.5em;
+  img {
+    position: relative;
+    top: 0.3rem;
   }
 }
 
@@ -152,5 +234,9 @@ $red: #ff3c4b;
       }
     }
   }
+}
+.tooltip {
+  margin: 20px;
+  font-size: 14px;
 }
 </style>
