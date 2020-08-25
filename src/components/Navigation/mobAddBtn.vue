@@ -45,8 +45,8 @@ export default {
   data() {
     return {
       mobTriggerHREF: "#0",
-      mobTtriggerStatus: "Show Navigation",
-      variableColor: "#1fb6ff"
+      mobTriggerStatus: "Show Navigation",
+      variableColor: "#1fb6ff",
     };
   },
   methods: {
@@ -63,17 +63,17 @@ export default {
         e.classList.add("rotate-forward");
         e.classList.remove("rotate-back");
       }
-    }
+    },
   },
   computed: {
     varColor() {
       return {
-        "--var-color": this.variableColor
+        "--var-color": this.variableColor,
       };
     },
     curRoute() {
       return this.$route.fullPath;
-    }
+    },
   },
   mounted() {
     if (this.$route.fullPath === "/premium") {
@@ -89,8 +89,8 @@ export default {
       } else {
         this.variableColor = "#1fb6ff";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

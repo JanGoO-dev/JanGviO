@@ -3,22 +3,17 @@
     <b-modal
       id="signUpModal"
       size="md"
-      centered="true"
-      button-size="sm"
+      :centered="true"
       title-class="h5 bg-transparent text-white"
       title="Sign Up"
       :header-bg-variant="curMode"
       :header-border-variant="curMode"
       header-close-variant="white"
       header-class="rounded-0"
-      footer-class="button border-0"
       modal-class="my-class"
       content-class="custom-shadow border-0"
       dialog-class="bg-transparent"
-      footer-bg-variant="light"
-      ok-title="Sign Up"
-      :ok-variant="curBtnMode"
-      cancel-variant="outline-secondary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
+      :hide-footer="true"
     >
       <div class="px-4 pt-3">
         <SignUpForm></SignUpForm>
@@ -31,7 +26,7 @@
 import SignUpForm from "../Auth/SignUpForm";
 export default {
   components: {
-    SignUpForm
+    SignUpForm,
   },
   computed: {
     curRoute() {
@@ -50,8 +45,8 @@ export default {
       } else {
         return "primary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

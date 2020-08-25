@@ -3,8 +3,8 @@
     <b-modal
       id="searchBtn"
       size="lg"
-      hide-header="true"
-      hide-footer="true"
+      :hide-header="true"
+      :hide-footer="true"
       modal-class="my-class"
       body-bg-variant="transparent"
       content-class="custom-shadow border-0"
@@ -20,7 +20,9 @@
         />
         <div class="input-group-append bg-transparent">
           <button
-            :style="{ backgroundImage: 'url(' + require('@/assets/' + searchImg) + ')' }"
+            :style="{
+              backgroundImage: 'url(' + require('@/assets/' + searchImg) + ')',
+            }"
             class="btn btn-light border-0 px-5 padding-top-bottom"
             type="button"
             id="button-addon2"
@@ -35,9 +37,9 @@
 export default {
   data() {
     return {
-      searchImg: "search.svg"
+      searchImg: "search.svg",
     };
-  }
+  },
 };
 </script>
 

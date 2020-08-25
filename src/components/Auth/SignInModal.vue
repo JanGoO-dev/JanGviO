@@ -3,22 +3,17 @@
     <b-modal
       id="signInModal"
       size="md"
-      centered="true"
-      button-size="sm"
+      :centered="true"
       title-class="h5 bg-transparent text-white"
       title="Sign In"
       :header-bg-variant="curMode"
       :header-border-variant="curMode"
       header-close-variant="white"
       header-class="rounded-0"
-      footer-class="button border-0"
+      :hide-footer="true"
       modal-class="my-class"
       content-class="custom-shadow border-0"
       dialog-class="bg-transparent"
-      footer-bg-variant="light"
-      ok-title="Sign In"
-      :ok-variant="curBtnMode"
-      cancel-variant="outline-secondary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
     >
       <div class="px-4 pt-3">
         <SignInForm></SignInForm>
@@ -31,7 +26,7 @@
 import SignInForm from "../Auth/SignInForm";
 export default {
   components: {
-    SignInForm
+    SignInForm,
   },
   computed: {
     curRoute() {
@@ -44,14 +39,7 @@ export default {
         return "primary";
       }
     },
-    curBtnMode() {
-      if (this.curRoute === "/premium") {
-        return "warning px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right";
-      } else {
-        return "primary px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right";
-      }
-    }
-  }
+  },
 };
 </script>
 
