@@ -19,18 +19,18 @@ export default {
   components: {
     NavBar,
     Loading,
-    MobileNav
+    MobileNav,
   },
   beforeMount() {
     setTimeout(() => {
       this.$store.commit("toggle_loading");
     }, 2000);
-  }
+  },
 };
 </script>
 
 <style lang="scss">
-* {
+body {
   background-color: #f8f9fa;
 }
 #app {

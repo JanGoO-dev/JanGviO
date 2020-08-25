@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="logo-img bg-transparent d-flex justify-content-end w-100">
-      <img class="logo-shadow-sm" src="@/assets/jangvio.svg" width="60" alt="JanGviO Logo" />
-      <div class="logo-text d-flex flex-column align-items-left ml-3 mt-3" href="#">
+      <img
+        class="logo-shadow-sm"
+        src="@/assets/jangvio.svg"
+        width="60"
+        alt="JanGviO Logo"
+      />
+      <div
+        class="logo-text d-flex flex-column align-items-left ml-3 mt-3"
+        href="#"
+      >
         <span class="bg-transparent h5 mb-0">JanGvio</span>
         <small class="bg-transparent text-muted">Lorem Ipsem Maseep!</small>
       </div>
@@ -40,7 +48,7 @@ export default {
   data() {
     return {
       selectItem: null,
-      cardVisible: true
+      cardVisible: true,
     };
   },
   methods: {
@@ -50,9 +58,14 @@ export default {
     },
     deSelectCard() {
       this.selectItem = null;
-    }
+    },
   },
   mounted() {
+    if (window.innerWidth > 770) {
+      this.cardVisible = true;
+    } else {
+      this.cardVisible = false;
+    }
     window.addEventListener("resize", () => {
       if (window.innerWidth > 770) {
         this.cardVisible = true;
@@ -60,7 +73,7 @@ export default {
         this.cardVisible = false;
       }
     });
-  }
+  },
 };
 </script>
 
