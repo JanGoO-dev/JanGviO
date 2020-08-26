@@ -1,20 +1,13 @@
 <template>
   <div>
     <div class="logo-img bg-transparent d-flex justify-content-end w-100">
-      <img
-        class="logo-shadow-sm"
-        src="@/assets/jangvio.svg"
-        width="60"
-        alt="JanGviO Logo"
-      />
-      <div
-        class="logo-text d-flex flex-column align-items-left ml-3 mt-3"
-        href="#"
-      >
+      <img class="logo-shadow-sm" src="@/assets/jangvio.svg" width="60" alt="JanGviO Logo" />
+      <div class="logo-text d-flex flex-column align-items-left ml-3 mt-3" href="#">
         <span class="bg-transparent h5 mb-0">JanGvio</span>
         <small class="bg-transparent text-muted">Lorem Ipsem Maseep!</small>
       </div>
     </div>
+    <div style="margin: 2rem 0 -4rem 8rem;" class="display-4 text-fade">Posts</div>
     <div class="profile">
       <div v-show="true" class="p-card-shadow rounded-all profile-card">
         <ProfileCard :cardWidth="cardVisible ? '18rem' : '100%'"></ProfileCard>
@@ -48,7 +41,7 @@ export default {
   data() {
     return {
       selectItem: null,
-      cardVisible: true,
+      cardVisible: true
     };
   },
   methods: {
@@ -58,7 +51,7 @@ export default {
     },
     deSelectCard() {
       this.selectItem = null;
-    },
+    }
   },
   mounted() {
     if (window.innerWidth > 770) {
@@ -73,7 +66,7 @@ export default {
         this.cardVisible = false;
       }
     });
-  },
+  }
 };
 </script>
 
@@ -99,7 +92,7 @@ export default {
   overflow: auto;
 }
 .profile-card {
-  top: 110px;
+  top: 8rem;
   right: 40px;
   position: fixed;
   overflow: auto;

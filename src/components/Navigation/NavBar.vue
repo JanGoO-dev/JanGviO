@@ -1,9 +1,6 @@
 <template>
   <div>
-    <header
-      id="main-nav"
-      class="navbar navbar-expand-lg navbar-light bg-white ml-5 fixed-top"
-    >
+    <header id="main-nav" class="navbar navbar-expand-lg navbar-light bg-white ml-5 fixed-top">
       <div class="d-flex flex-column align-items-left ml-5" href="#">
         <span class="bg-white h5 mb-0">JanGvio</span>
         <small class="bg-white text-muted">Lorem Ipsem Maseep!</small>
@@ -35,8 +32,7 @@
             :variant="tooltipMode"
             placement="bottom"
             offset="0"
-            >{{ mainLink.tooltip }}</b-tooltip
-          >
+          >{{ mainLink.tooltip }}</b-tooltip>
         </div>
 
         <div class="bg-white" :style="varColor">
@@ -55,8 +51,7 @@
             placement="bottom"
             offset="0"
             :variant="tooltipMode"
-            >Search</b-tooltip
-          >
+          >Search</b-tooltip>
         </div>
       </div>
       <div id="addBtn" class="pl-2">
@@ -64,6 +59,7 @@
       </div>
       <div class="nav-buttons ml-auto bg-white">
         <button
+          v-show="!$store.getters.get_loggedInStatus"
           v-b-modal.signInModal
           type="button"
           :class="{
@@ -72,31 +68,36 @@
               $router.currentRoute.fullPath === '/premium',
           }"
           class="btn btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign In
-        </button>
+        >Sign In</button>
         <button
           v-b-modal.signUpModal
           type="button"
           :class="{
             'btn-danger': $router.currentRoute.fullPath !== '/premium',
             'btn-warning': $router.currentRoute.fullPath === '/premium',
+            'invisible': $store.getters.get_loggedInStatus
           }"
           class="btn btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
-        >
-          Sign Up
-        </button>
+        >Sign Up</button>
+        <button
+          v-show="$store.getters.get_loggedInStatus"
+          v-b-modal.signOutModal
+          type="button"
+          :class="{
+            'btn-danger': $router.currentRoute.fullPath !== '/premium',
+            'btn-warning': $router.currentRoute.fullPath === '/premium',
+          }"
+          class="btn btn-sm px-3 ml-2 rounded-top-left rounded-top-right rounded-bottom-left rounded-bottom-right"
+        >Sign Out</button>
         <div class="position-fixed">
           <SignInModal></SignInModal>
           <SignUpModal></SignUpModal>
+          <SignOutModal></SignOutModal>
           <SearchModal></SearchModal>
         </div>
       </div>
     </header>
-    <header
-      id="aside"
-      class="navbar navbar-light bg-white flex-column fixed-bottom h-100"
-    >
+    <header id="aside" class="navbar navbar-light bg-white flex-column fixed-bottom h-100">
       <router-link to="/" class="bg-white pt-1 mb-5">
         <img
           class="bg-white logo-shadow-sm"
@@ -130,8 +131,7 @@
             offset="0"
             :variant="tooltipMode"
             class="tooltip-right"
-            >{{ $store.getters.get_user.name }}</b-tooltip
-          >
+          >{{ $store.getters.get_user.name }}</b-tooltip>
         </div>
       </div>
     </header>
@@ -142,13 +142,15 @@
 import addBtn from "../Navigation/addBtn";
 import SignInModal from "../Auth/SignInModal";
 import SignUpModal from "../Auth/SignUpModal";
+import SignOutModal from "../Auth/SignOutModal";
 import SearchModal from "../SearchModal";
 export default {
   components: {
     addBtn,
     SignInModal,
     SignUpModal,
-    SearchModal,
+    SignOutModal,
+    SearchModal
   },
   data() {
     return {
@@ -158,34 +160,34 @@ export default {
           tooltip: "Explore",
           invisible: false,
           src: "explore.svg",
-          id: "exploreBtn",
+          id: "exploreBtn"
         },
         {
           path: "/premium",
           tooltip: "Premium",
           invisible: false,
           src: "premium.svg",
-          id: "premiumBtn",
+          id: "premiumBtn"
         },
         {
           path: "",
           tooltip: "Empty",
           invisible: true,
           src: "avatar.png",
-          id: "",
+          id: ""
         },
         {
           path: "/following",
           tooltip: "Following",
           invisible: false,
           src: "following.svg",
-          id: "followingBtn",
-        },
+          id: "followingBtn"
+        }
       ],
       sideLinks: [{ path: "/profile", tooltip: "One" }],
       activeItem: 0,
       sideActiveItem: null,
-      variableColor: "#1fb6ff",
+      variableColor: "#1fb6ff"
     };
   },
   methods: {
@@ -194,7 +196,7 @@ export default {
     },
     selectSideItem(i) {
       this.sideActiveItem = i;
-    },
+    }
   },
   computed: {
     curPath() {
@@ -202,7 +204,7 @@ export default {
     },
     varColor() {
       return {
-        "--var-color": this.variableColor,
+        "--var-color": this.variableColor
       };
     },
     curRoute() {
@@ -214,7 +216,7 @@ export default {
       } else {
         return "primary";
       }
-    },
+    }
   },
   mounted() {
     for (var i = 0; i < this.mainLinks.length; i++) {
@@ -236,8 +238,8 @@ export default {
       } else {
         this.variableColor = "#1fb6ff";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
